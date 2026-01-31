@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+const mode = process.env.NEXT_PUBLIC_MODE;
+const publicUrl = process.env.NEXT_PULIC_URL; // Using the provided variable name with typo
+const localUrl = 'http://localhost:8080/api';
+
 const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api',
+    baseURL: mode === "developement" ? localUrl : `${publicUrl}/api`,
     headers: {
         'Content-Type': 'application/json',
     },
