@@ -1,0 +1,205 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  OWNER
+  CUSTOMER
+}
+
+enum OrderStatus {
+  PENDING_ACCEPTANCE
+  ACCEPTED
+  CANCELLED_BY_OWNER
+  CANCELLED_BY_CUSTOMER
+  DELIVERED
+}
+
+enum PaymentStatus {
+  NOT_REQUESTED
+  PAYMENT_PENDING
+  PAID
+  FAILED
+}
+
+enum PaymentResult {
+  SUCCESS
+  FAILED
+}
+
+enum StatusChangedBy {
+  OWNER
+  CUSTOMER
+  SYSTEM
+}
+
+model User {
+  id           String   @id @default(uuid())
+  role         UserRole
+  name         String
+  phone        String   @unique
+  passwordHash String?
+  email        String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  carts         CartItem[]
+  orders        Order[]
+  addresses     Address[]
+  savedPayments SavedPayment[]
+}
+
+enum ItemType {
+  FOOD
+  FRUIT
+}
+
+model MenuItem {
+  id            String   @id @default(uuid())
+  name          String
+  description   String?
+  price         Decimal  @db.Decimal(10, 2)
+  type          ItemType @default(FOOD)
+  category      String?
+  nutritionInfo Json?
+  imageUrl      String?
+  imageId       String?
+  isAvailable   Boolean  @default(true)
+  isOutOfStock  Boolean  @default(false)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+}
+
+model CartItem {
+  id            String   @id @default(uuid())
+  userId        String
+  menuItemId    String
+  quantity      Int
+  priceSnapshot Decimal  @db.Decimal(10, 2)
+  createdAt     DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id])
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+
+  @@unique([userId, menuItemId])
+}
+
+model Order {
+  id          String @id @default(uuid())
+  orderNumber String @unique
+  userId      String
+
+  status        OrderStatus
+  paymentStatus PaymentStatus
+
+  totalAmount     Decimal @db.Decimal(10, 2)
+  deliveryAddress String
+  customerNote    String?
+
+  createdAt   DateTime  @default(now())
+  acceptedAt  DateTime?
+  paidAt      DateTime?
+  deliveredAt DateTime?
+
+  user          User                 @relation(fields: [userId], references: [id])
+  items         OrderItem[]
+  payments      Payment[]
+  statusHistory OrderStatusHistory[]
+}
+
+model OrderItem {
+  id         String  @id @default(uuid())
+  orderId    String
+  menuItemId String?
+
+  itemNameSnapshot  String
+  priceSnapshot     Decimal @db.Decimal(10, 2)
+  nutritionSnapshot Json?
+  quantity          Int
+  subtotal          Decimal @db.Decimal(10, 2)
+
+  order    Order     @relation(fields: [orderId], references: [id])
+  menuItem MenuItem? @relation(fields: [menuItemId], references: [id])
+}
+
+model Payment {
+  id               String        @id @default(uuid())
+  orderId          String
+  gateway          String
+  gatewayPaymentId String
+  amount           Decimal       @db.Decimal(10, 2)
+  result           PaymentResult
+  rawResponse      Json?
+  createdAt        DateTime      @default(now())
+
+  order Order @relation(fields: [orderId], references: [id])
+}
+
+model OrderStatusHistory {
+  id             String          @id @default(uuid())
+  orderId        String
+  previousStatus OrderStatus?
+  newStatus      OrderStatus
+  changedBy      StatusChangedBy
+  createdAt      DateTime        @default(now())
+
+  order Order @relation(fields: [orderId], references: [id])
+}
+
+model OtpVerification {
+  id        String   @id @default(uuid())
+  phone     String   @unique
+  otpHash   String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Address {
+  id        String  @id @default(uuid())
+  userId    String
+  street    String
+  city      String
+  state     String
+  zip       String
+  isDefault Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+enum PaymentMethodType {
+  CARD
+  UPI
+}
+
+model SavedPayment {
+  id         String            @id @default(uuid())
+  userId     String
+  type       PaymentMethodType
+  provider   String // e.g., "Visa", "HDFC", "Google Pay"
+  identifier String // masked card number or UPI ID
+  isDefault  Boolean           @default(false)
+  createdAt  DateTime          @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}

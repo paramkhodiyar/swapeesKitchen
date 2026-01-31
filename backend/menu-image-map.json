@@ -1,0 +1,128 @@
+[
+  {
+    "file": "KadhaiPaneer.jpg",
+    "slug": "KadhaiPaneer",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841116/menu/KadhaiPaneer_jlnzjf.jpg",
+    "publicId": "menu/KadhaiPaneer_jlnzjf"
+  },
+  {
+    "file": "MasaleBhat.webp",
+    "slug": "MasaleBhat",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841117/menu/MasaleBhat_lxgxjp.webp",
+    "publicId": "menu/MasaleBhat_lxgxjp"
+  },
+  {
+    "file": "PaneerBhurji.jpg",
+    "slug": "PaneerBhurji",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841118/menu/PaneerBhurji_xefxuf.jpg",
+    "publicId": "menu/PaneerBhurji_xefxuf"
+  },
+  {
+    "file": "PaneerButterMasala.jpg",
+    "slug": "PaneerButterMasala",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841118/menu/PaneerButterMasala_qmtxsg.jpg",
+    "publicId": "menu/PaneerButterMasala_qmtxsg"
+  },
+  {
+    "file": "ShahiPaneer.jpg",
+    "slug": "ShahiPaneer",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841119/menu/ShahiPaneer_hjqpan.jpg",
+    "publicId": "menu/ShahiPaneer_hjqpan"
+  },
+  {
+    "file": "alooParatha.jpg",
+    "slug": "alooParatha",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841120/menu/alooParatha_o9vsze.jpg",
+    "publicId": "menu/alooParatha_o9vsze"
+  },
+  {
+    "file": "alooPyazParatha.webp",
+    "slug": "alooPyazParatha",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841120/menu/alooPyazParatha_pwcyta.webp",
+    "publicId": "menu/alooPyazParatha_pwcyta"
+  },
+  {
+    "file": "alooSandwitch.webp",
+    "slug": "alooSandwitch",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841122/menu/alooSandwitch_cyijjn.webp",
+    "publicId": "menu/alooSandwitch_cyijjn"
+  },
+  {
+    "file": "butterTawaRoti.jpg",
+    "slug": "butterTawaRoti",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841122/menu/butterTawaRoti_ve7ffk.jpg",
+    "publicId": "menu/butterTawaRoti_ve7ffk"
+  },
+  {
+    "file": "dalTadka.jpg",
+    "slug": "dalTadka",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841123/menu/dalTadka_fwb83q.jpg",
+    "publicId": "menu/dalTadka_fwb83q"
+  },
+  {
+    "file": "jeeraRice.jpg",
+    "slug": "jeeraRice",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841124/menu/jeeraRice_tvye1c.jpg",
+    "publicId": "menu/jeeraRice_tvye1c"
+  },
+  {
+    "file": "mixVeg.jpg",
+    "slug": "mixVeg",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841125/menu/mixVeg_as5b4c.jpg",
+    "publicId": "menu/mixVeg_as5b4c"
+  },
+  {
+    "file": "paneerParatha.jpg",
+    "slug": "paneerParatha",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841126/menu/paneerParatha_nqzwkq.jpg",
+    "publicId": "menu/paneerParatha_nqzwkq"
+  },
+  {
+    "file": "paneerPulao.webp",
+    "slug": "paneerPulao",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841127/menu/paneerPulao_elsyuf.webp",
+    "publicId": "menu/paneerPulao_elsyuf"
+  },
+  {
+    "file": "paneerSandwitch.avif",
+    "slug": "paneerSandwitch",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841128/menu/paneerSandwitch_zt3qpg.avif",
+    "publicId": "menu/paneerSandwitch_zt3qpg"
+  },
+  {
+    "file": "plainParatha.webp",
+    "slug": "plainParatha",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841130/menu/plainParatha_ayaxhi.webp",
+    "publicId": "menu/plainParatha_ayaxhi"
+  },
+  {
+    "file": "poha.avif",
+    "slug": "poha",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841131/menu/poha_klyw7u.avif",
+    "publicId": "menu/poha_klyw7u"
+  },
+  {
+    "file": "pyazParatha.webp",
+    "slug": "pyazParatha",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841132/menu/pyazParatha_gvyal5.webp",
+    "publicId": "menu/pyazParatha_gvyal5"
+  },
+  {
+    "file": "roti.avif",
+    "slug": "roti",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841133/menu/roti_y7ozm9.avif",
+    "publicId": "menu/roti_y7ozm9"
+  },
+  {
+    "file": "sevBhaji.jpg",
+    "slug": "sevBhaji",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841134/menu/sevBhaji_m5mqp1.jpg",
+    "publicId": "menu/sevBhaji_m5mqp1"
+  },
+  {
+    "file": "vegSandwitch.webp",
+    "slug": "vegSandwitch",
+    "url": "https://res.cloudinary.com/dnwqswgka/image/upload/v1769841134/menu/vegSandwitch_qhdekt.webp",
+    "publicId": "menu/vegSandwitch_qhdekt"
+  }
+]
