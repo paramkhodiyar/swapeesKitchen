@@ -62,27 +62,27 @@ export default function LandingPage() {
             <div className="w-10 h-10 rounded-2xl bg-brand-primary flex items-center justify-center text-white shadow-lg shadow-brand-primary/20">
               <ChefHat size={22} />
             </div>
-            <span className="font-black text-2xl tracking-tighter text-text-main">
-              Swapee's<span className="text-brand-primary">Kitchen</span>
+            <span className="font-black text-xl md:text-2xl tracking-tighter text-text-main">
+              Swapee's <span className="text-brand-primary">Kitchen</span>
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-10">
             <Link href="/menu" className="text-sm font-bold text-text-muted hover:text-brand-primary transition-colors uppercase tracking-widest">Menu</Link>
             <Link href="/fruits" className="text-sm font-bold text-text-muted hover:text-brand-primary transition-colors uppercase tracking-widest">Fruits</Link>
             <Link href="#features" className="text-sm font-bold text-text-muted hover:text-brand-primary transition-colors uppercase tracking-widest">Why Us</Link>
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {user ? (
               <Link href={user.role === 'OWNER' ? '/owner/dashboard' : '/menu'}
-                className="btn btn-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-brand-primary/20">
+                className="btn btn-primary px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-xl shadow-brand-primary/20">
                 Dashboard
               </Link>
             ) : (
               <>
-                <Link href="/login" className="text-sm font-bold text-text-main hover:text-brand-primary transition-colors mr-2">Login</Link>
-                <Link href="/signup" className="btn btn-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-brand-primary/20">Sign Up</Link>
+                <Link href="/login" className="text-xs sm:text-sm font-bold text-text-main hover:text-brand-primary transition-colors">Login</Link>
+                <Link href="/signup" className="btn btn-primary px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-xl shadow-brand-primary/20">Sign Up</Link>
               </>
             )}
           </div>
@@ -90,7 +90,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 lg:pt-52 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-16 lg:pt-52 lg:pb-32 overflow-hidden">
         {/* Background Blobs */}
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-amber-100/30 rounded-full blur-[100px]" />
@@ -100,18 +100,18 @@ export default function LandingPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-50 border border-zinc-100 rounded-full mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-50 border border-zinc-100 rounded-full mb-6 sm:mb-8"
             >
               <span className="flex h-2 w-2 rounded-full bg-brand-primary animate-ping" />
-              <span className="text-xs font-bold uppercase tracking-widest text-text-muted">Fresh Batch Available Now</span>
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-text-muted">Fresh Batch Available Now</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-6xl md:text-8xl font-black text-text-main tracking-tighter leading-[0.9] mb-8"
+              className="text-4xl sm:text-6xl md:text-8xl font-black text-text-main tracking-tighter leading-[1.1] sm:leading-[0.9] mb-6 sm:mb-8"
             >
-              Taste the <span className="text-brand-primary">Warmth</span> of <br />
+              Taste the <span className="text-brand-primary">Warmth</span> of <br className="hidden sm:block" />
               Home-Cooked Stories.
             </motion.h1>
 
@@ -119,7 +119,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-text-muted font-medium max-w-2xl mx-auto mb-12 leading-relaxed"
+              className="text-lg sm:text-xl text-text-muted font-medium max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
             >
               Authentic Indian flavors prepared with pure love and the finest ingredients.
               From our home kitchen directly to your heart, every meal is a batch of happiness.
@@ -129,17 +129,17 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-5 justify-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center"
             >
               <button
                 onClick={() => router.push("/menu")}
-                className="btn btn-primary px-10 py-5 rounded-3xl text-lg font-black shadow-2xl shadow-brand-primary/30 flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all"
+                className="btn btn-primary px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl text-base sm:text-lg font-black shadow-2xl shadow-brand-primary/30 flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all"
               >
                 Explore Today's Menu <ArrowRight size={22} />
               </button>
               <button
                 onClick={() => router.push("/fruits")}
-                className="bg-emerald-50 text-emerald-700 px-10 py-5 rounded-3xl text-lg font-black border border-emerald-100 hover:bg-emerald-100 transition-all"
+                className="bg-emerald-50 text-emerald-700 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl text-base sm:text-lg font-black border border-emerald-100 hover:bg-emerald-100 transition-all"
               >
                 Preorder Fresh Fruits
               </button>
@@ -244,7 +244,7 @@ export default function LandingPage() {
                   <ChefHat size={22} />
                 </div>
                 <span className="font-black text-2xl tracking-tighter text-text-main">
-                  Swapee's<span className="text-brand-primary">Kitchen</span>
+                  Swapee's<span className="text-brand-primary"> Kitchen</span>
                 </span>
               </div>
               <p className="text-text-muted text-lg max-w-md mb-8 leading-relaxed">
@@ -261,7 +261,7 @@ export default function LandingPage() {
               <ul className="space-y-4">
                 <li><Link href="/menu" className="text-text-muted font-bold hover:text-brand-primary transition-colors">Today's Menu</Link></li>
                 <li><Link href="/fruits" className="text-text-muted font-bold hover:text-brand-primary transition-colors">Fruit Preorders</Link></li>
-                <li><Link href="/orders" className="text-text-muted font-bold hover:text-brand-primary transition-colors">Track Orders</Link></li>
+                <li><Link href="/orders" className="text-text-muted font-bold hover:text-brand-primary transition-colors">View Orders</Link></li>
                 <li><Link href="/login" className="text-text-muted font-bold hover:text-brand-primary transition-colors">Login / Sign Up</Link></li>
               </ul>
             </div>

@@ -48,7 +48,7 @@ interface SavedPayment {
 }
 
 export default function ProfilePage() {
-    const { user, logout, fetchMe } = useAuthStore();
+    const { user, logout, fetchMe, isLoading } = useAuthStore();
     const { setIsLoading } = useLoader();
     const router = useRouter();
 
@@ -78,10 +78,15 @@ export default function ProfilePage() {
     });
 
     useEffect(() => {
+        if (!user && !isLoading) {
+            router.push("/login");
+            toast.error("Please login to view your profile");
+            return;
+        }
         fetchMe();
         fetchAddresses();
         fetchPayments();
-    }, [fetchMe]);
+    }, [fetchMe, user, isLoading, router]);
 
     const fetchAddresses = async () => {
         try {

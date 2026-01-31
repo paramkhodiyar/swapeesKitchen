@@ -20,6 +20,7 @@ import {
 import { toast } from "react-hot-toast";
 import api from "@/lib/api";
 import { useLoader } from "@/app/LoaderProvider";
+import { useAuthStore } from "@/store/useAuthStore";
 import { cn } from "@/lib/utils";
 
 interface Order {
@@ -37,6 +38,7 @@ export default function OrdersPage() {
     const [orders, setOrders] = useState<Order[]>([]);
     const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
     const { setIsLoading } = useLoader();
+    const { user, isLoading } = useAuthStore();
     const router = useRouter();
 
     // Filters
@@ -60,8 +62,13 @@ export default function OrdersPage() {
     }, [setIsLoading]);
 
     useEffect(() => {
+        if (!user && !isLoading) {
+            router.push("/login");
+            toast.error("Please login to view your orders");
+            return;
+        }
         fetchOrders();
-    }, [fetchOrders]);
+    }, [fetchOrders, user, isLoading, router]);
 
     useEffect(() => {
         let result = [...orders];

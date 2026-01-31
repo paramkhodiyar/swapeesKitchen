@@ -138,13 +138,15 @@ export default function ResponsiveShell({ children }: { children: React.ReactNod
                             </Link>
                         )}
 
-                        <button
-                            onClick={handleLogout}
-                            className="flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-all duration-200 text-rose-600 hover:bg-rose-50 text-sm font-bold"
-                        >
-                            <LogOut size={20} />
-                            <span>Logout</span>
-                        </button>
+                        {user && (
+                            <button
+                                onClick={handleLogout}
+                                className="flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-all duration-200 text-rose-600 hover:bg-rose-50 text-sm font-bold"
+                            >
+                                <LogOut size={20} />
+                                <span>Logout</span>
+                            </button>
+                        )}
 
                         <div className="flex items-center gap-3 px-4 py-2 border-t border-border pt-4 mt-2">
                             <div className="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
@@ -183,12 +185,14 @@ export default function ResponsiveShell({ children }: { children: React.ReactNod
                                 </div>
                                 <span className="font-black text-sm tracking-tight">Kitchen Control</span>
                             </div>
-                            <button
-                                onClick={handleLogout}
-                                className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center transition-all active:scale-95"
-                            >
-                                <LogOut size={20} />
-                            </button>
+                            {user && (
+                                <button
+                                    onClick={handleLogout}
+                                    className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center transition-all active:scale-95"
+                                >
+                                    <LogOut size={20} />
+                                </button>
+                            )}
                         </header>
                     )}
 
